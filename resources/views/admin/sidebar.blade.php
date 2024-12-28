@@ -14,7 +14,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('courses.index') }}">
                     <i class="bi bi-journal-bookmark"></i>
-                    <span>Courses</span>
+                    <span>Manage Courses</span>
                 </a>
             </li><!-- End Courses Nav -->
         @endrole
