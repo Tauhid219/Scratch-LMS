@@ -30,6 +30,7 @@
                             <td>{{ $course->status }}</td>
                             <td>{{ $course->level }}</td>
                             <td>
+                                <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info btn-sm">Show</a>
                                 <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('courses.destroy', $course->id) }}" method="POST"
                                     style="display:inline;">
