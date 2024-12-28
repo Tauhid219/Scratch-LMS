@@ -27,11 +27,11 @@ class CourseController extends Controller
      */
     public function create()
     {
+        $users = User::role('super-admin')->get();  // Fetch only users with the 'super-admin' role
         $categories = Category::all();
         $languages = Language::all();
-        $users = User::all();
 
-        return view('admin.courses.create', compact('categories', 'languages', 'users'));
+        return view('admin.courses.create', compact('users', 'categories', 'languages'));
     }
 
     /**
@@ -103,7 +103,7 @@ class CourseController extends Controller
     {
         $categories = Category::all();
         $languages = Language::all();
-        $users = User::all();
+        $users = User::role('super-admin')->get();
 
         return view('admin.courses.edit', compact('course', 'categories', 'languages', 'users'));
     }
