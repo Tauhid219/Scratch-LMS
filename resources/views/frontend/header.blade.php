@@ -28,13 +28,13 @@
                     </div>
                     <div class="hidden md:flex">
                         <ul class="menu menu-horizontal text-lg font-semibold px-1">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">About us</a></li>
-                            <li><a href="/olympiad">Olympiad</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('about') }}">About us</a></li>
+                            <li><a href="{{ route('olympiad') }}">Olympiad</a></li>
                             <li>
                                 <a href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted">Learn</a>
                             </li>
-                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="{{ route('blog') }}">Blog</a></li>
                         </ul>
                     </div>
                     <div class="flex items-center gap-5 md:mr-5">
