@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // Frontend Routes
-Route::prefix('frontend')->group(function () {
-    Route::get('/home', [FrontendController::class, 'home'])->name('home');
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/home', 'home')->name('home');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/olympiad', 'olympiad')->name('olympiad');
 });
