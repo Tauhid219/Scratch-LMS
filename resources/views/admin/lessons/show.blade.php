@@ -46,7 +46,8 @@
             <p><strong>Order:</strong> {{ $lesson->order }}</p>
 
             <a href="{{ route('lessons.edit', $lesson->id) }}" class="btn btn-warning">Edit</a>
-            <a href="{{ route('lessons.index') }}" class="btn btn-secondary">Back to List</a>
+            {{-- <a href="{{ route('lessons.index') }}" class="btn btn-secondary">Back to List</a> --}}
+            <a href="{{ route('courses.show', $lesson->course_id) }}" class="btn btn-secondary">Back to List</a>
         </div>
 
     </main><!-- End #main -->

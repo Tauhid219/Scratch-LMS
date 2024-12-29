@@ -60,7 +60,11 @@ class LessonController extends Controller
         $lesson->language_id = $request->language_id;
         $lesson->save();
 
-        return redirect()->route('lessons.index')->with('success', 'Lesson created successfully.');
+        // return redirect()->route('lessons.index')->with('success', 'Lesson created successfully.');
+
+        // Redirect to the parent course's show page
+        return redirect()->route('courses.show', $lesson->course_id)
+            ->with('success', 'Lesson created successfully.');
     }
 
     /**
@@ -111,7 +115,11 @@ class LessonController extends Controller
         $lesson->language_id = $request->language_id;
         $lesson->save();
 
-        return redirect()->route('lessons.index')->with('success', 'Lesson updated successfully.');
+        // return redirect()->route('lessons.index')->with('success', 'Lesson updated successfully.');
+
+        // Redirect to the parent course's show page
+        return redirect()->route('courses.show', $lesson->course_id)
+            ->with('success', 'Lesson updated successfully.');
     }
 
     /**
@@ -120,6 +128,10 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson)
     {
         $lesson->delete();
-        return redirect()->route('lessons.index')->with('success', 'Lesson deleted successfully.');
+        // return redirect()->route('lessons.index')->with('success', 'Lesson deleted successfully.');
+
+        // Redirect to the parent course's show page
+        return redirect()->route('courses.show', $lesson->course_id)
+            ->with('success', 'Lesson deleted successfully.');
     }
 }

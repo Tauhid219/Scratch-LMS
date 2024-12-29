@@ -80,7 +80,8 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Lesson</button>
-                <a href="{{ route('lessons.index') }}" class="btn btn-secondary">Cancel</a>
+                {{-- <a href="{{ route('lessons.index') }}" class="btn btn-secondary">Cancel</a> --}}
+                <a href="{{ route('courses.show', $lesson->course_id) }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
 
