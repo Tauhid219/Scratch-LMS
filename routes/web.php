@@ -13,7 +13,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // Frontend Routes
 Route::controller(FrontendController::class)->group(function () {
-    Route::get('/home', 'home')->name('home');
+    Route::get('/', 'home')->name('home');
     Route::get('/about', 'about')->name('about');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/olympiad', 'olympiad')->name('olympiad');
