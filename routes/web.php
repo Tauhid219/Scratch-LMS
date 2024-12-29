@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
@@ -27,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// My Routes
+// Admin Routes
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/mydashboard', [DashboardController::class, 'index'])->name('mydashboard');
 
@@ -44,4 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/courses', CourseController::class)->names('courses')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
+});
+
+// Frontend Routes
+Route::prefix('frontend')->group(function () {
+    Route::get('/home', [FrontendController::class, 'home'])->name('home');
 });
