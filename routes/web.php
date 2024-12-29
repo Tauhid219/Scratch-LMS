@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('rolepermission-page')->middleware('role:super-admin');
 
     Route::resource('/courses', CourseController::class)->names('courses')->middleware('role:super-admin');
+    Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
 });

@@ -21,11 +21,20 @@
 
         @role('super-admin')
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('lessons.index') }}">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Manage Lessons</span>
+                </a>
+            </li><!-- End Lessons Nav -->
+        @endrole
+
+        @role('super-admin')
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('category.index') }}">
                     <i class="bi bi-grid"></i>
                     <span>Categories</span>
                 </a>
-            </li><!-- End Courses Nav -->
+            </li><!-- End Categories Nav -->
         @endrole
 
         @role('super-admin')
@@ -34,7 +43,7 @@
                     <i class="bi bi-translate"></i>
                     <span>Languages</span>
                 </a>
-            </li><!-- End Courses Nav -->
+            </li><!-- End Languages Nav -->
         @endrole
 
         <li class="nav-item">
