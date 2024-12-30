@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 @section('main-content')
-    <div class="min-h-[calc(100vh-239px)]">
-        <div class="container mx-auto p-3 mb:pt-40 pt-24">
+    <div class="min-h-[calc(100vh-239px)] container mx-auto">
+        <div class=" p-3 mb:pt-40 pt-24">
             <div class="items-center grid-cols-5 gap-10 md:grid ">
                 <div class="col-span-2 md:p-20 p-10"><img src="https://i.ibb.co/3TB6snz/scratch-bd-main-logo.png"
                         class="w-full"></div>

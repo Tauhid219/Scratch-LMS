@@ -25,6 +25,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="items-center grid-cols-2 gap-16 md:grid p-3 container pt-14 mx-auto">
                 <div class="">
                     <iframe width="100%" height="300"
@@ -53,6 +54,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="container mx-auto md:mt-20 mt-10 p-3">
                 <h1 class="my-3 md:text-5xl text-3xl text-center font-bold mb-10">
                     Featured Project
@@ -196,6 +198,7 @@
                     </div>
                 </div>
             </div>
+
             <div>
                 <h1 class="md:text-5xl text-3xl text-center font-bold md:mt-20 mt-10 pb-10">
                     Courses
@@ -248,6 +251,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="container mx-auto my-14 p-3">
                 <h1 class="md:text-5xl text-2xl text-center font-bold mb-14">
                     Frequently Ask Question
