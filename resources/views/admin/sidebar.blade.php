@@ -10,6 +10,13 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('stdc.index') }}">
+                <i class="bi bi-journal-bookmark"></i>
+                <span>Courses</span>
+            </a>
+        </li><!-- End Courses Nav -->
+
         @role('super-admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('courses.index') }}">

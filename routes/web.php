@@ -10,6 +10,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
+
+    Route::get('/student-courses', [StudentController::class, 'index'])->name('stdc.index');
 });
 
 // Frontend Routes
