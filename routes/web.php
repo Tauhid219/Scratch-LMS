@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -12,7 +13,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -43,13 +44,14 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('rolepermission-page')->middleware('role:super-admin');
 
     Route::resource('/courses', CourseController::class)->names('courses')->middleware('role:super-admin');
+    Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
 });
 
 // Frontend Routes
 Route::controller(FrontendController::class)->group(function () {
-    Route::get('/home', 'home')->name('home');
+    Route::get('/', 'home')->name('home');
     Route::get('/about', 'about')->name('about');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/olympiad', 'olympiad')->name('olympiad');
