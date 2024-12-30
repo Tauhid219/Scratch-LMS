@@ -30,12 +30,6 @@
 
             <!-- Main Content -->
             <div class="col-md-9">
-                {{-- <div class="card">
-                    <div class="card-body">
-                        <h3>{{ $lesson->title }}</h3>
-                        <p>{!! nl2br(e($lesson->content)) !!}</p>
-                    </div>
-                </div> --}}
 
                 <h1>{{ $lesson->title }}</h1>
 
