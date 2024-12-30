@@ -50,6 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
 
     Route::get('/student-courses', [StudentController::class, 'index'])->name('stdc.index');
+    Route::post('/student-courses/enroll/{id}', [StudentController::class, 'enroll'])->name('stdc.enroll');
+    Route::get('/student-courses/{id}', [StudentController::class, 'show'])->name('stdc.show');
+    Route::get('/student-lessons/{id}', [StudentController::class, 'showLesson'])->name('stdc.showLesson');
+    Route::get('/open-course/{id}', [StudentController::class, 'open'])->name('stdc.open');
 });
 
 // Frontend Routes

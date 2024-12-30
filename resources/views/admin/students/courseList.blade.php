@@ -9,7 +9,8 @@
                         <div class="card h-100">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="card-title mb-0">{{ $course->title }}</h5>
-                                <a href="" class="btn btn-primary">Enroll</a>
+                                <a href="{{ route('stdc.enroll', $course->id) }}" class="btn btn-primary">Enroll</a>
+                                <a href="{{ route('stdc.open', $course->id) }}" class="btn btn-primary">Open Course</a>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">
