@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Lesson;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class StudentController extends Controller
 {
@@ -20,19 +23,29 @@ class StudentController extends Controller
     }
 
     // Handle enrollment and redirect to course details
-    public function enroll($id)
+    public function enroll(Request $request, Course $course)
     {
-        $course = Course::findOrFail($id);
         $user = Auth::user();
 
-        // Check if already enrolled
-        $enrollment = Enrollment::firstOrCreate(
-            ['student_id' => $user->id, 'course_id' => $course->id],
-            ['enrollment_date' => now(), 'status' => 'Active', 'progress' => 0]
-        );
+        // Check if the student is already enrolled
+        if (Enrollment::where('student_id', $user->id)->where('course_id', $course->id)->exists()) {
+            return redirect()->back()->with('error', 'You are already enrolled in this course.');
+        }
 
-        return redirect()->route('courses.show', $course->id)
-            ->with('success', 'You are now enrolled in the course.');
+        // Create the enrollment record
+        Enrollment::create([
+            'student_id' => $user->id,
+            'course_id' => $course->id,
+            'enrollment_date' => Carbon::now(),
+            'status' => 'Active',
+        ]);
+
+        // Check and assign 'student' role if not already assigned
+        if (!$user->hasRole('student')) {
+            $user->syncRoles(['student']);
+        }
+
+        return redirect()->back()->with('success', 'You have successfully enrolled in the course.');
     }
 
     // Show course details with lessons

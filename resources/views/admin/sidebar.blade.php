@@ -26,14 +26,14 @@
             </li><!-- End Courses Nav -->
         @endrole
 
-        @role('super-admin')
+        {{-- @role('super-admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('lessons.index') }}">
                     <i class="bi bi-journal-text"></i>
                     <span>Manage Lessons</span>
                 </a>
             </li><!-- End Lessons Nav -->
-        @endrole
+        @endrole --}}
 
         @role('super-admin')
             <li class="nav-item">
