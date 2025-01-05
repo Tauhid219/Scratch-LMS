@@ -38,12 +38,45 @@
                         </ul>
                     </div>
                     <div class="flex items-center gap-5 md:mr-5">
-                    <label>
-                                    <div class="md:w-10 w-7 rounded-full">
-                                        <img
-                                            src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" />
-                                    </div>
-                                </label>
+                        <div class="relative">
+                            <div class="md:w-10 w-7 rounded-full">
+                                <img
+                                    src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" 
+                                    id="user-icon" class="rounded-full"/>
+                            </div>
+                            <div class="dropdown-content hidden absolute right-0 w-48 bg-white rounded-md shadow-lg z-20">
+                                <ul class="py-1">
+                                    <li><a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a></li>
+                                    <li><a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a></li>
+                                    <li><a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
+                <script>
+                    const userIcon = document.getElementById('user-icon');
+                    const dropdownContent = document.querySelector('.dropdown-content');
+
+                    userIcon.addEventListener('mouseover', function() {
+                        dropdownContent.classList.remove('hidden');
+                    });
+
+                    userIcon.addEventListener('mouseout', function() {
+                        setTimeout(function() {
+                            if (!dropdownContent.matches(':hover')) {
+                                dropdownContent.classList.add('hidden');
+                            }
+                        }, 100);
+                    });
+
+                    dropdownContent.addEventListener('mouseover', function() {
+                        dropdownContent.classList.remove('hidden');
+                    });
+
+                    dropdownContent.addEventListener('mouseout', function() {
+                        dropdownContent.classList.add('hidden');
+                    });
+                </script>
                 </div>
             </div>

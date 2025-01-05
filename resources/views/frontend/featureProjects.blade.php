@@ -12,7 +12,7 @@
             </div>
             <div class="mt-5">
                 <h1 class="text-md font-semibold">
-                    Created By: Mustafizur Rahman
+                    Created By: Mustafizur
                 </h1>
                 <p class="text-md">
                     Scratch Profile:
