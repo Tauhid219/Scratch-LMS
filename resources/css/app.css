@@ -2,4 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.btn-primary {
+    @apply text-lg text-white border py-2 px-4 bg-orange-400 duration-500 rounded-lg hover:bg-orange-500 transform transition-all ease-in-out hover:scale-105 hover:shadow-lg;
+  }
+  

@@ -4,7 +4,7 @@
     <div>
         @include('frontend.hero')
 
-        <div class="container items-center grid-cols-2 gap-16 md:grid pt-14 mx-auto">
+        <div class="container mx-auto px-5 items-center grid-cols-2 gap-16 md:grid pt-14">
             <div class="">
                 <iframe width="100%" height="400" src="https://www.youtube.com/embed/Bs4bNZRo28Q?si=EahUPgogqkpxl7nI"
                     title="YouTube video player"
@@ -26,7 +26,7 @@
                     Scratch editor.
                 </p>
                 <div>
-                    <a href="/classes"><button class="btn text-lg border py-2 px-4 bg-blue-300 duration-300 rounded-lg hover:bg-blue-500">
+                    <a href="/classes"><button class="btn-primary">
                             Learn Scratch in Bangla
                         </button></a>
                 </div>
