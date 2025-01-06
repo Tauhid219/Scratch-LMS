@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 // Admin Routes
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mydashboard', [DashboardController::class, 'index'])->name('mydashboard');
 
     Route::resource('/permission', PermissionController::class)->names('pr');
