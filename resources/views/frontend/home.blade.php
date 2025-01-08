@@ -36,102 +36,103 @@
 
         @include('frontend.courses')
 
-        <div class="container mx-auto my-14 p-3">
-            <h1 class="md:text-5xl text-2xl text-center font-bold mb-14">
-                Frequently Ask Question
-            </h1>
-            <div class="md:grid grid-cols-3 items-center justify-center gap-5">
-                <div class="space-y-3 col-span-2">
-                    <div class="collapse collapse-arrow bg-base-200">
-                        <input type="radio" name="my-accordion-2" checked="" />
-                        <div class="collapse-title font-medium">
-                            What is Scratch, and what can I do with it?
-                        </div>
-                        <div class="collapse-content">
-                            <p>
-                                With the Scratch programming language and online
-                                community, you can create your own interactive stories,
-                                games, and animations -- and share your creations with
-                                others around the world. As young people create and
-                                share Scratch projects, they learn to think creatively,
-                                reason systematically, and work collaboratively. To
-                                learn more about Scratch, see the About Scratch page.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow bg-base-200">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title font-medium">
-                            Who uses Scratch?
-                        </div>
-                        <div class="collapse-content">
-                            <p>
-                                Scratch is used by people from all backgrounds, in all
-                                countries around the world, in all types of settings --
-                                homes, schools, libraries, museums, and more. Scratch is
-                                designed especially for young people ages 8 to 16, but
-                                people of all ages create and share with Scratch.
-                                Younger children may want to try ScratchJr, a simplified
-                                version of Scratch designed for ages 5 to 7.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow bg-base-200">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title font-medium">
-                            What are the system requirements for Scratch?
-                        </div>
-                        <div class="collapse-content">
-                            <p>
-                                Scratch will run in most current web browsers on
-                                desktops, laptops and tablets. You can view projects on
-                                mobile phones, but currently you are not able to create
-                                or edit projects on phones. Below is the list of
-                                officially supported browsers.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow bg-base-200">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title font-medium">
-                            Can I still upload projects created with older versions of
-                            Scratch to the website?
-                        </div>
-                        <div class="collapse-content">
-                            <p>
-                                es: You can share or upload projects made with earlier
-                                versions of Scratch, and they will be visible and
-                                playable. (However, you can’t download projects made
-                                with or edited in later versions of Scratch and open
-                                them in earlier versions. For example, you can’t open a
-                                Scratch 3.0 project in the desktop version of Scratch
-                                2.0, because Scratch 2.0 doesn’t know how to read the
-                                .sb3 project file format.)
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow bg-base-200">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title font-medium">
-                            Do you have a downloadable version so I can create and
-                            view projects offline?
-                        </div>
-                        <div class="collapse-content">
-                            <p>
-                                The Scratch app allows you to create Scratch projects
-                                without an internet connection. You can download the
-                                Scratch app from the Scratch website or the app store
-                                for your device. (This was previously called the Scratch
-                                Offline Editor.
-                            </p>
-                        </div>
-                    </div>
+        <div class="container mx-auto my-14 p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">
+        Frequently Asked Questions
+    </h1>
+    <div class="md:grid grid-cols-3 items-center gap-8">
+        <!-- FAQ Accordion -->
+        <div class="col-span-2 space-y-4">
+            <!-- Question 1 -->
+            <div class="border rounded-lg overflow-hidden">
+                <div 
+                    class="bg-gray-200 p-4 cursor-pointer font-semibold text-gray-800" 
+                    onclick="toggleAccordion(1)">
+                    What is Scratch, and what can I do with it?
                 </div>
-                <div class="col-span-1">
-                    <img src="https://bechofy.in/img/hero-img/faq.png" alt="" class="w-full mt-5" />
+                <div 
+                    id="accordion-1" 
+                    class="hidden p-4 text-gray-700 bg-gray-50">
+                    Scratch is a programming language and community where you can create interactive stories, games, and animations.
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="border rounded-lg overflow-hidden">
+                <div 
+                    class="bg-gray-200 p-4 cursor-pointer font-semibold text-gray-800" 
+                    onclick="toggleAccordion(2)">
+                    Who uses Scratch?
+                </div>
+                <div 
+                    id="accordion-2" 
+                    class="hidden p-4 text-gray-700 bg-gray-50">
+                    Scratch is used by people worldwide, especially for young people aged 8-16, but anyone can use it.
+                </div>
+            </div>
+            <!-- Question 3 -->
+            <div class="border rounded-lg overflow-hidden">
+                <div 
+                    class="bg-gray-200 p-4 cursor-pointer font-semibold text-gray-800" 
+                    onclick="toggleAccordion(3)">
+                    What are the system requirements for Scratch?
+                </div>
+                <div 
+                    id="accordion-3" 
+                    class="hidden p-4 text-gray-700 bg-gray-50">
+                    Scratch runs on most web browsers on desktops, laptops, and tablets. It cannot be edited on mobile phones.
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="border rounded-lg overflow-hidden">
+                <div 
+                    class="bg-gray-200 p-4 cursor-pointer font-semibold text-gray-800" 
+                    onclick="toggleAccordion(4)">
+                    Can I upload projects created with older versions of Scratch?
+                </div>
+                <div 
+                    id="accordion-4" 
+                    class="hidden p-4 text-gray-700 bg-gray-50">
+                    Yes, older Scratch projects can be uploaded and played, but they cannot be opened in older versions of Scratch.
+                </div>
+            </div>
+            <!-- Question 5 -->
+            <div class="border rounded-lg overflow-hidden">
+                <div 
+                    class="bg-gray-200 p-4 cursor-pointer font-semibold text-gray-800" 
+                    onclick="toggleAccordion(5)">
+                    Do you have a downloadable version?
+                </div>
+                <div 
+                    id="accordion-5" 
+                    class="hidden p-4 text-gray-700 bg-gray-50">
+                    The Scratch app allows you to create and edit projects offline. Download it from the Scratch website or app store.
                 </div>
             </div>
         </div>
+        <!-- FAQ Illustration -->
+        <div class="hidden md:block col-span-1">
+            <img 
+                src="https://bechofy.in/img/hero-img/faq.png" 
+                alt="FAQ Illustration" 
+                class="w-full">
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(`accordion-${id}`);
+        const isVisible = !content.classList.contains('hidden');
+        
+        // Close all accordions
+        document.querySelectorAll('[id^="accordion-"]').forEach(item => item.classList.add('hidden'));
+
+        // Open the clicked accordion if it was closed
+        if (!isVisible) {
+            content.classList.remove('hidden');
+        }
+    }
+</script>
     </div>
 </div>
 @endsection
