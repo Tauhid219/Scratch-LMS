@@ -1,5 +1,5 @@
-<footer class="bg-[#ededed] text-black md:text-lg container mx-auto text-sm">
-    <div class="md:grid grid-cols-4 gap-5 px-3 py-10">
+<footer class="bg-[#ededed] text-black md:text-lg text-sm">
+    <div class="md:grid grid-cols-4 gap-5 px-3 py-10 container mx-auto">
         <div class="col-span-1">
             <span class="footer-title text-lg text-yellow-600">Scratch Bangladesh</span>
             <p class="leading-7">
