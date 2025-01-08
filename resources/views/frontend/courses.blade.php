@@ -8,7 +8,7 @@
             <div
                 class="relative bg-clip-border overflow-hidden bg-transparent text-gray-700 shadow-none m-0 rounded-none">
                 <div class="relative h-64 rounded overflow-hidden">
-                    <img src="https://scratch.mit.edu/images/scratch-og.png" alt="{card.title}"
+                    <img src="https://img.youtube.com/vi/-hKHd2fLANo/maxresdefault.jpg" alt="{card.title}"
                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div
                 class="relative bg-clip-border overflow-hidden bg-transparent text-gray-700 shadow-none m-0 rounded-none">
                 <div class="relative h-64 rounded overflow-hidden">
-                    <img src="https://www.learningresources.co.uk/media/home_uk/lruk-blog-images/What-is-Block-Coding-for-Kids_Header.jpg"
+                    <img src="https://img.youtube.com/vi/O6C0E0PTucE/maxresdefault.jpg"
                         alt="{card.title}"
                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>

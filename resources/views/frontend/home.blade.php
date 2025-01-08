@@ -6,9 +6,8 @@
 
         <div class="container mx-auto px-5 items-center grid-cols-2 gap-16 md:grid pt-14">
             <div class="">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/Bs4bNZRo28Q?si=EahUPgogqkpxl7nI"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/js-WmIvAtWU?si=TtF90DBYmlYUTdSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
             </div>
             <div class="text-center md:text-left">
                 <h1 class="my-3 md:text-6xl text-4xl font-bold">

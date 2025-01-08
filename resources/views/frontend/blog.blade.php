@@ -31,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div
                     class="relative flex flex-col bg-clip-border rounded-xl text-gray-700 shadow-md overflow-hidden bg-slate-50 border p-4 hover:shadow-xl">
                     <div

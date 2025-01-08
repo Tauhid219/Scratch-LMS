@@ -30,10 +30,11 @@
                         door</p>
                 </div>
             </div>
-            <div class="flex justify-center items-center mt-10"><iframe class="iframe-responsive"
-                    src="https://www.youtube.com/embed/Bs4bNZRo28Q?si=1ZCkGRCcyNp8hHCy" title="YouTube video player"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen=""></iframe></div>
+            <div class="flex justify-center items-center mt-10">
+            <iframe class="w-full md:w-2/3 lg:w-1/2 aspect-video" src="https://www.youtube.com/embed/js-WmIvAtWU?si=O4ukGN3Mt3T_c_VU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   
+</div>
+
             <div class="mt-10">
                 <section class="">
                     <h1 class="text-center md:text-6xl text-3xl font-bold py-10">Our Achievement</h1>

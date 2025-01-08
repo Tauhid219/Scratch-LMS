@@ -40,7 +40,7 @@
                         <img class="rounded-lg shadow-lg" src="https://i.ibb.co/7x3Hpmm/scratchimage.jpg" />
                     </div>
                     <div
-                        class="col-span-1 bg-blue-400 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-slate-300 scrollbar-w-2 scrollbar-track-transparent p-5 overflow-y-auto h-[56.2vh] rounded-lg space-y-4">
+                        class="col-span-1 bg-blue-400 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-slate-300 scrollbar-w-2 scrollbar-track-transparent p-5 overflow-y-auto h-[67.2vh] rounded-lg space-y-4">
                         <div class="p-2 bg-white rounded-md shadow-lg link link-hover hover:bg-blue-300">
                             <h1>Scratch Olympiad 2024 (Upcomming...)</h1>
                         </div>
