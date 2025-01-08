@@ -10,6 +10,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 // Admin Routes
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mydashboard', [DashboardController::class, 'index'])->name('mydashboard');
 
     Route::resource('/permission', PermissionController::class)->names('pr');
@@ -47,6 +49,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
+
+    Route::get('/student-courses', [StudentController::class, 'index'])->name('stdc.index');
+    Route::post('/student-courses/{course}/enroll', [StudentController::class, 'enroll'])->name('stdc.enroll');
+    Route::get('/student-courses/{id}', [StudentController::class, 'show'])->name('stdc.show');
+    Route::get('/student-lessons/{id}', [StudentController::class, 'showLesson'])->name('stdc.showLesson');
+    Route::get('/open-course/{id}', [StudentController::class, 'open'])->name('stdc.open')->middleware('role:student');
 });
 
 // Frontend Routes

@@ -10,6 +10,13 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('stdc.index') }}">
+                <i class="bi bi-journal-bookmark"></i>
+                <span>Courses</span>
+            </a>
+        </li><!-- End Courses Nav -->
+
         @role('super-admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('courses.index') }}">
@@ -19,14 +26,14 @@
             </li><!-- End Courses Nav -->
         @endrole
 
-        @role('super-admin')
+        {{-- @role('super-admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('lessons.index') }}">
                     <i class="bi bi-journal-text"></i>
                     <span>Manage Lessons</span>
                 </a>
             </li><!-- End Lessons Nav -->
-        @endrole
+        @endrole --}}
 
         @role('super-admin')
             <li class="nav-item">
