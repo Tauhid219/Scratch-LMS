@@ -14,7 +14,7 @@ class ProfileDetailController extends Controller
     // Display the logged-in user's profile
     public function index()
     {
-        $user = Auth::user(); // Get logged-in user
+        $user = Auth::user()->load('socialLinks'); // Load social links with the user
         return view('admin.profiledetail.index', compact('user'));
     }
 
@@ -58,14 +58,18 @@ class ProfileDetailController extends Controller
     {
         $user = Auth::user(); // Get logged-in user
 
-        $request->validate([
+        // Validate the request data
+        $validatedData = $request->validate([
             'profile_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'phone_number' => 'nullable|string|max:15',
             'address' => 'nullable|string|max:255',
             'date_of_birth' => 'nullable|date',
             'gender' => 'nullable|string|max:10',
             'bio' => 'nullable|string|max:500',
-            'social_links' => 'nullable|array',
+            'social_links.facebook' => 'nullable|url|max:255',
+            'social_links.twitter' => 'nullable|url|max:255',
+            'social_links.linkedin' => 'nullable|url|max:255',
+            'social_links.telegram' => 'nullable|url|max:255',
         ]);
 
         // Handle file upload for profile photo
@@ -75,15 +79,16 @@ class ProfileDetailController extends Controller
             $profilePhoto = $user->profile_photo;
         }
 
-        $user->update([
-            'profile_photo' => $profilePhoto,
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender,
-            'bio' => $request->bio,
-            'social_links' => $request->social_links,
-        ]);
+        // Update the user's main profile data
+        $user->update($validatedData);
+
+        // Update or create social links
+        if (isset($validatedData['social_links'])) {
+            $user->socialLinks()->updateOrCreate(
+                ['user_id' => $user->id], // Matching condition
+                $validatedData['social_links'] // Data to update
+            );
+        }
 
         return redirect()->route('profile-details.index')->with('success', 'Profile updated successfully!');
     }

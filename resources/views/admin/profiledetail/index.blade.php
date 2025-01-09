@@ -23,13 +23,14 @@
                             <h2>{{ $user->name }}</h2>
                             <h3>{{ $user->bio }}</h3>
                             <div class="social-links mt-2">
-                                @if ($user->social_links)
-                                    @foreach (json_decode($user->social_links, true) as $platform => $link)
-                                        <a href="{{ $link }}" target="_blank" class="{{ $platform }}">
-                                            <i class="bi bi-{{ $platform }}"></i>
-                                        </a>
-                                    @endforeach
-                                @endif
+                                <a href="{{ $user->socialLinks->facebook }}" class="facebook" target="_blank"><i
+                                        class="bi bi-facebook"></i></a>
+                                <a href="{{ $user->socialLinks->twitter }}" class="twitter" target="_blank"><i
+                                        class="bi bi-twitter-x"></i></a>
+                                <a href="{{ $user->socialLinks->linkedin }}" class="linkedin" target="_blank"><i
+                                        class="bi bi-linkedin"></i></a>
+                                <a href="{{ $user->socialLinks->telegram }}" class="telegram" target="_blank"><i
+                                        class="bi bi-telegram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -63,7 +64,7 @@
 
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                     <h5 class="card-title">Bio</h5>
-                                    <p class="small fst-italic">{{ $user->name }}</p>
+                                    <p class="small fst-italic">{{ $user->bio }}</p>
 
                                     <h5 class="card-title">Profile Details</h5>
 
@@ -97,6 +98,26 @@
                                         <div class="col-lg-9">{{ $user->email }}</div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-lg-3 label">Facebook</div>
+                                        <div class="col-lg-9">{{ $user->socialLinks->facebook ?? 'N/A' }}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 label">Twitter</div>
+                                        <div class="col-lg-9">{{ $user->socialLinks->twitter ?? 'N/A' }}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 label">Linkedin</div>
+                                        <div class="col-lg-9">{{ $user->socialLinks->linkedin ?? 'N/A' }}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 label">Telegram</div>
+                                        <div class="col-lg-9">{{ $user->socialLinks->telegram ?? 'N/A' }}</div>
+                                    </div>
+
                                 </div>
 
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -114,7 +135,7 @@
                                                 <img id="profileImagePreview"
                                                     src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('default-profile.png') }}"
                                                     alt="Profile" class="rounded-circle"
-                                                    style="width: 150px; height: 150px; object-fit: cover;">
+                                                    style="width: 100px; height: 100px;">
 
                                                 <div class="pt-2">
                                                     <!-- Trigger Upload -->
@@ -126,13 +147,14 @@
                                                 </div>
 
                                                 <!-- Hidden File Input -->
-                                                <input type="file" name="profile_photo" id="profile_photo" class="d-none"
-                                                    onchange="previewProfileImage(event)">
+                                                <input type="file" name="profile_photo" id="profile_photo"
+                                                    class="d-none" onchange="previewProfileImage(event)">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full
+                                                Name</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="name" type="text" class="form-control" id="name"
                                                     value="{{ $user->name }}">
@@ -180,19 +202,38 @@
                                             </div>
                                         </div>
 
-                                        {{-- <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                        <div class="row mb-3">
+                                            <label for="Facebook"
+                                                class="col-md-4 col-lg-3 col-form-label">Facebook</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="email"
-                                                    value="{{ $user->email }}">
+                                                <input name="social_links[facebook]" type="text" class="form-control"
+                                                    id="facebook" value="{{ $user->socialLinks->facebook ?? '' }}">
                                             </div>
-                                        </div> --}}
+                                        </div>
 
                                         <div class="row mb-3">
-                                            <label for="Social Links" class="col-md-4 col-lg-3 col-form-label">Social
-                                                Links</label>
+                                            <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <textarea name="social_links" class="form-control" id="bio" style="height: 100px">{{ $user->social_links }}</textarea>
+                                                <input name="social_links[twitter]" type="text" class="form-control"
+                                                    id="twitter" value="{{ $user->socialLinks->twitter ?? '' }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="Linkedin"
+                                                class="col-md-4 col-lg-3 col-form-label">Linkedin</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="social_links[linkedin]" type="text" class="form-control"
+                                                    id="linkedin" value="{{ $user->socialLinks->linkedin ?? '' }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="Telegram"
+                                                class="col-md-4 col-lg-3 col-form-label">Telegram</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="social_links[telegram]" type="text" class="form-control"
+                                                    id="telegram" value="{{ $user->socialLinks->telegram ?? '' }}">
                                             </div>
                                         </div>
 
@@ -202,47 +243,6 @@
                                     </form><!-- End Profile Edit Form -->
 
                                 </div>
-
-                                {{-- <div class="tab-pane fade pt-3" id="profile-change-password">
-                                    <!-- Change Password Form -->
-                                    <form action="{{ route('password.update', $user->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-
-                                        <div class="row mb-3">
-                                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
-                                                Password</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="current_password" type="password" class="form-control"
-                                                    id="currentPassword">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
-                                                Password</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="password" type="password" class="form-control"
-                                                    id="newPassword">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Confirm
-                                                Password</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="password_confirmation" type="password" class="form-control"
-                                                    id="renewPassword">
-                                            </div>
-                                        </div>
-
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary">Change Password</button>
-                                        </div>
-                                    </form>
-                                    <!-- End Change Password Form -->
-
-                                </div> --}}
 
                             </div><!-- End Bordered Tabs -->
 
