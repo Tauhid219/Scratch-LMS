@@ -84,7 +84,8 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('profile') }}">
+            {{-- <a class="nav-link collapsed" href="{{ url('profile') }}"> --}}
+            <a class="nav-link collapsed" href="{{ route('profile-details.index') }}">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>

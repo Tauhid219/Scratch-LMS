@@ -9,6 +9,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileDetailController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -49,6 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
     Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
     Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
+    Route::resource('/profile-details', ProfileDetailController::class)->names('profile-details');
 
     Route::get('/student-courses', [StudentController::class, 'index'])->name('stdc.index');
     Route::post('/student-courses/{course}/enroll', [StudentController::class, 'enroll'])->name('stdc.enroll');
