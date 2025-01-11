@@ -6,13 +6,26 @@ use App\Models\Course;
 use App\Models\Language;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Str;
 
-class LessonController extends Controller
+class LessonController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:create lesson', only: ['create', 'store']),
+            new Middleware('permission:update lesson', only: ['edit', 'update']),
+            new Middleware('permission:view lesson', only: ['index']),
+            new Middleware('permission:delete lesson', only: ['destroy']),
+            new Middleware('auth', only: ['edit', 'update']),
+        ];
+    }
+
     public function index()
     {
         $lessons = Lesson::with('course', 'language')->orderBy('order')->get();

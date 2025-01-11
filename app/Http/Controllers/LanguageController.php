@@ -4,12 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class LanguageController extends Controller
+class LanguageController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:create language', only: ['create', 'store']),
+            new Middleware('permission:update language', only: ['edit', 'update']),
+            new Middleware('permission:view language', only: ['index']),
+            new Middleware('permission:delete language', only: ['destroy']),
+            new Middleware('auth', only: ['edit', 'update']),
+        ];
+    }
+
     public function index()
     {
         $languages = Language::paginate(10);  // Paginate the languages

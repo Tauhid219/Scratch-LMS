@@ -43,7 +43,7 @@
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="card-title mb-0">{{ $course->title }}</h5>
 
-                                @if ($isEnrolled || auth()->user()->hasRole('super-admin'))
+                                @if ($isEnrolled || auth()->user()->hasRole('super-admin|instructor'))
                                     <button class="btn btn-secondary" disabled>Enrolled</button>
                                     <a href="{{ route('stdc.open', $course->id) }}" class="btn btn-primary">Open Course</a>
                                 @else
