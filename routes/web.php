@@ -33,7 +33,7 @@ require __DIR__ . '/auth.php';
 
 // Admin Routes
 // Route::group(['middleware' => 'auth'], function () {
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/mydashboard', [DashboardController::class, 'index'])->name('mydashboard');
 
     Route::resource('/permission', PermissionController::class)->names('pr');
@@ -46,17 +46,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('admin.role-permission.rolepermission-page');
     })->name('rolepermission-page')->middleware('role:super-admin');
 
-    Route::resource('/courses', CourseController::class)->names('courses')->middleware('role:super-admin');
-    Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin');
-    Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin');
-    Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin');
+    Route::resource('/courses', CourseController::class)->names('courses')->middleware('role:super-admin|instructor');
+    Route::resource('/lessons', LessonController::class)->names('lessons')->middleware('role:super-admin|instructor');
+    Route::resource('/category', CategoryController::class)->names('category')->middleware('role:super-admin|instructor');
+    Route::resource('/languages', LanguageController::class)->names('languages')->middleware('role:super-admin|instructor');
     Route::resource('/profile-details', ProfileDetailController::class)->names('profile-details');
 
     Route::get('/student-courses', [StudentController::class, 'index'])->name('stdc.index');
     Route::post('/student-courses/{course}/enroll', [StudentController::class, 'enroll'])->name('stdc.enroll');
     Route::get('/student-courses/{id}', [StudentController::class, 'show'])->name('stdc.show');
     Route::get('/student-lessons/{id}', [StudentController::class, 'showLesson'])->name('stdc.showLesson');
-    Route::get('/open-course/{id}', [StudentController::class, 'open'])->name('stdc.open')->middleware('role:student');
+    Route::get('/open-course/{id}', [StudentController::class, 'open'])->name('stdc.open')->middleware('role:student|super-admin');
 });
 
 // Frontend Routes

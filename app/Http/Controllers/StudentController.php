@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         // Fetch courses from the database
-        $courses = Course::all(); // Adjust query as needed (e.g., pagination or filters)
+        $courses = Course::where('status', 'Published')->get();
 
         // Pass courses to the view
         return view('admin.students.courseList', compact('courses'));

@@ -43,12 +43,11 @@
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="card-title mb-0">{{ $course->title }}</h5>
 
-                                @if ($isEnrolled)
+                                @if ($isEnrolled || auth()->user()->hasRole('super-admin'))
                                     <button class="btn btn-secondary" disabled>Enrolled</button>
                                     <a href="{{ route('stdc.open', $course->id) }}" class="btn btn-primary">Open Course</a>
                                 @else
-                                    <form action="{{ route('stdc.enroll', $course->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('stdc.enroll', $course->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         <button type="submit" class="btn btn-primary">Enroll</button>
                                     </form>

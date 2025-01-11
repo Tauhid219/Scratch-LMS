@@ -4,12 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class CategoryController extends Controller
+class CategoryController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:create category', only: ['create', 'store']),
+            new Middleware('permission:update category', only: ['edit', 'update']),
+            new Middleware('permission:view category', only: ['index']),
+            new Middleware('permission:delete category', only: ['destroy']),
+            new Middleware('auth', only: ['edit', 'update']),
+        ];
+    }
+
+
     public function index()
     {
         $categories = Category::paginate(10);

@@ -1,7 +1,7 @@
 @extends('admin.adminlayout')
 @section('main-content')
     <main id="main" class="main">
-        <div class="row">
+        <div class="">
 
             <!-- Sidebar -->
             <div class="col-md-3">

@@ -4,13 +4,13 @@
 
         <div class="pagetitle">
             <h1>Profile</h1>
-            <nav>
+            {{-- <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item">Users</li>
                     <li class="breadcrumb-item active">Profile</li>
                 </ol>
-            </nav>
+            </nav> --}}
         </div><!-- End Page Title -->
 
         <section class="section profile">
@@ -19,17 +19,18 @@
 
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                            <img src="{{ asset('storage/' . $user->profile_photo) }}" alt="Profile" class="rounded-circle">
+                            <img src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('/assets/img/profile-img.jpg') }}"
+                                alt="Profile" class="rounded-circle">
                             <h2>{{ $user->name }}</h2>
                             <h3>{{ $user->bio }}</h3>
                             <div class="social-links mt-2">
-                                <a href="{{ $user->socialLinks->facebook }}" class="facebook" target="_blank"><i
+                                <a href="{{ $user->socialLinks->facebook ?? '' }}" class="facebook" target="_blank"><i
                                         class="bi bi-facebook"></i></a>
-                                <a href="{{ $user->socialLinks->twitter }}" class="twitter" target="_blank"><i
+                                <a href="{{ $user->socialLinks->twitter ?? '' }}" class="twitter" target="_blank"><i
                                         class="bi bi-twitter-x"></i></a>
-                                <a href="{{ $user->socialLinks->linkedin }}" class="linkedin" target="_blank"><i
+                                <a href="{{ $user->socialLinks->linkedin ?? '' }}" class="linkedin" target="_blank"><i
                                         class="bi bi-linkedin"></i></a>
-                                <a href="{{ $user->socialLinks->telegram }}" class="telegram" target="_blank"><i
+                                <a href="{{ $user->socialLinks->telegram ?? '' }}" class="telegram" target="_blank"><i
                                         class="bi bi-telegram"></i></a>
                             </div>
                         </div>
@@ -133,7 +134,7 @@
                                             <div class="col-md-8 col-lg-9">
                                                 <!-- Image Preview -->
                                                 <img id="profileImagePreview"
-                                                    src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('default-profile.png') }}"
+                                                    src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('/assets/img/profile-img.jpg') }}"
                                                     alt="Profile" class="rounded-circle"
                                                     style="width: 100px; height: 100px;">
 

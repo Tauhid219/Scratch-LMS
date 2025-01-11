@@ -7,14 +7,28 @@ use App\Models\Course;
 use App\Models\Language;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class CourseController extends Controller
+class CourseController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:create course', only: ['create', 'store']),
+            new Middleware('permission:update course', only: ['edit', 'update']),
+            new Middleware('permission:view course', only: ['index']),
+            new Middleware('permission:delete course', only: ['destroy']),
+            new Middleware('auth', only: ['edit', 'update']),
+        ];
+    }
+
+
     public function index()
     {
         $courses = Course::all();
