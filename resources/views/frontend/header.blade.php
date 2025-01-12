@@ -40,8 +40,7 @@
 
                     <!-- Logo -->
                     <a href="/" class="flex-shrink-0">
-                        <img src="https://i.ibb.co/qd28TJX/scratch-bd-nav-logo.png" class="md:w-16 w-12"
-                            alt="Logo" />
+                        <img src="/assets/img/scratch-bd-nav-logo.png" class="md:w-16 w-12" alt="Logo" />
                     </a>
 
                     <!-- Navigation Menu for Medium and Large Screens -->

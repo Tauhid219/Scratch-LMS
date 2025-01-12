@@ -5,8 +5,11 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('mydashboard') }}">
+                    {{-- <a href="{{ route('mydashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    </a> --}}
+                    <a href="{{ route('home') }}" class="flex-shrink-0">
+                        <img src="/assets/img/scratch-bd-nav-logo.png" class="md:w-16 w-12" alt="Logo" />
                     </a>
                 </div>
 
