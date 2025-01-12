@@ -11,7 +11,7 @@ class FrontendController extends Controller
     {
         // Courses এর তথ্য সংগ্রহ
         $courses = Course::with('category')  // Category এর নাম নিতে for eager loading
-            ->select('title', 'thumbnail', 'category_id', 'price')  // প্রয়োজনীয় ফিল্ডগুলি নির্বাচন
+            ->select('id', 'title', 'thumbnail', 'category_id', 'price')  // প্রয়োজনীয় ফিল্ডগুলি নির্বাচন
             ->get();
 
         // Home পেইজে ডেটা পাঠানো

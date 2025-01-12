@@ -73,5 +73,6 @@ class StudentController extends Controller
         $course = Course::findOrFail($id);
         $lessons = $course->lessons;
         return view('admin.students.courseDetails', compact('course', 'lessons'));
+
     }
 }

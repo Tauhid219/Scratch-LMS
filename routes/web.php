@@ -65,5 +65,5 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/olympiad', 'olympiad')->name('olympiad');
-    Route::get('/courses', 'courseView')->name('courses');
+    // Route::get('/courses', 'courseView')->name('courses');
 });
