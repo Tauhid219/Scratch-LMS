@@ -2,7 +2,7 @@
     <h1 class="md:text-5xl text-3xl text-center font-bold md:mt-20 mt-10 pb-10">
         Courses
     </h1>
-    <div class="md:grid grid-cols-2 gap-10 container mx-auto p-3">
+    <div class="container mx-auto md:flex justify-center items-center gap-10 p-3">
         @if (session('success'))
             <div id="success-alert" class="fixed top-5 right-5 bg-green-500 text-white px-4 py-3 rounded shadow-lg z-50">
                 {{ session('success') }}
@@ -46,7 +46,7 @@
                                 <button type="submit" class="btn text-xl btn-primary">Enroll</button>
                             </form>
                         @else
-                            <a class="btn text-xl btn-secondary" href="{{ route('login') }}">Login to Enroll</a>
+                            <a class="btn text-xl btn-primary" href="{{ route('login') }}">Login to Enroll</a>
                         @endif
                     </div>
                 </div>
