@@ -1,4 +1,4 @@
-<div class=''>
+<div class='' id="courses">
     <h1 class="md:text-5xl text-3xl text-center font-bold md:mt-20 mt-10 pb-10">
         Courses
     </h1>

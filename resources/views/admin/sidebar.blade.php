@@ -11,7 +11,7 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('stdc.index') }}">
+            <a class="nav-link collapsed" href="{{ route('home') }}#courses">
                 <i class="bi bi-journal-bookmark"></i>
                 <span>Courses</span>
             </a>
